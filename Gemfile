@@ -8,6 +8,8 @@ unless ENV['RAILS_3_0'] || ENV['RAILS_3_1'] || ENV['RAILS_3_2']
     gem 'activemodel'
   end
 
+  gem 'minitest', '~> 5.0.0'
+
   # forking off airblade/paper_trail to use the rails4 branch.
   gem 'paper_trail', :github => 'airblade/paper_trail', :branch => 'rails4'
   # for https://github.com/bmabey/database_cleaner/pull/153
