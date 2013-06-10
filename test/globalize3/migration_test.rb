@@ -139,7 +139,7 @@ class MigrationTest < Minitest::Test
     assert_translated untranslated, :en, :name, 'Untranslated'
 
     # Cool, now we need to get rid of the non-translated value for the next test
-    model.update_all({:name => 'No longer translated'}, :id => untranslated.id)
+    model.where(:name => 'No longer translated').update_all(:id => untranslated.id)
     untranslated.reload
 
     # Make sure we didn't harm the translation and that it's been set. (also tests .untranslated_attributes)
@@ -176,7 +176,7 @@ class MigrationTest < Minitest::Test
     untranslated_record.reload
 
     # We change the unstralated value so we make sure we don't overwrite the translated one when we add new fields
-    model.update_all({:name => 'No longer translated'}, :id => untranslated_record.id)
+    model.where(:name => 'No longer translated').update_all(:id => untranslated_record.id)
     untranslated_record.reload
 
     model.add_translation_fields!({:body => :text}, {:migrate_data => true, :remove_source_columns => true})
