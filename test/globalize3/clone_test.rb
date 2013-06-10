@@ -2,7 +2,7 @@
 
 require File.expand_path('../../test_helper', __FILE__)
 
-class CloneTest < Test::Unit::TestCase
+class CloneTest < Minitest::Test
 
   test 'stores translations from clonned new record' do
     check_stored_translations(standard_post.clone)

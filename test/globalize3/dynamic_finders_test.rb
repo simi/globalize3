@@ -2,7 +2,7 @@
 require File.expand_path('../../test_helper', __FILE__)
 
 if ENV['RAILS_3_0'] || ENV['RAILS_3_1'] || ENV['RAILS_3_2']
-  class DynamicFindersTest < Test::Unit::TestCase
+  class DynamicFindersTest < Minitest::Test
 
     test "Does not break normal finders" do
       user = User.create!(:name => "name", :email => "email@example.org")
@@ -129,7 +129,7 @@ if ENV['RAILS_3_0'] || ENV['RAILS_3_1'] || ENV['RAILS_3_2']
 
   end
 
-  class TwoTranslatedAttributesDynamicFindersTest < Test::Unit::TestCase
+  class TwoTranslatedAttributesDynamicFindersTest < Minitest::Test
 
     def setup
       @title1, @title2, @content = "n1", "n2", "desc"
@@ -168,7 +168,7 @@ if ENV['RAILS_3_0'] || ENV['RAILS_3_1'] || ENV['RAILS_3_2']
 
   end
 
-  class TranslatedAndNormalAttributeDynamicFindersTest < Test::Unit::TestCase
+  class TranslatedAndNormalAttributeDynamicFindersTest < Minitest::Test
 
     def setup
       @name1, @name2, @email = "n1", "n2", "email@example.org"

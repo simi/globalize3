@@ -2,7 +2,7 @@
 
 require File.expand_path('../../test_helper', __FILE__)
 
-class FirstOrCreateTest < Test::Unit::TestCase
+class FirstOrCreateTest < Minitest::Test
   if ::ActiveRecord::VERSION::STRING >= "3.2.1"
     def test_first_or_create_with_translations_and_when_row_exists
       post = Post.create(:title => 'test_title')

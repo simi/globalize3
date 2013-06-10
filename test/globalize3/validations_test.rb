@@ -1,6 +1,6 @@
 require File.expand_path('../../test_helper', __FILE__)
 
-class ValidationsTest < Test::Unit::TestCase
+class ValidationsTest < Minitest::Test
   def teardown
     super
     Validatee.reset_callbacks(:validate)
@@ -23,7 +23,7 @@ class ValidationsTest < Test::Unit::TestCase
     post = Post.create(:title => 'foo')
     assert !post.update_attributes(:title => '')
     assert !post.valid?
-    assert_not_nil post.reload.attributes['title']
+    refute post.reload.attributes['title'].nil?
     assert_equal 'foo', post.title
   end
 

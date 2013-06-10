@@ -1,6 +1,6 @@
 require File.expand_path('../../test_helper', __FILE__)
 
-class TranslationClassTest < Test::Unit::TestCase
+class TranslationClassTest < Minitest::Test
   test 'translation_class returns the Translation class' do
     assert_equal Post::Translation, Post.translation_class
   end

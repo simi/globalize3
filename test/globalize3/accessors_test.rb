@@ -2,7 +2,7 @@
 
 require File.expand_path('../../test_helper', __FILE__)
 
-class AccessorsTest < Test::Unit::TestCase
+class AccessorsTest < Minitest::Test
   test "*_translatons methods are generated" do
     assert User.new.respond_to?(:name_translations)
     assert User.new.respond_to?(:name_translations=)

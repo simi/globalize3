@@ -2,7 +2,7 @@
 
 require File.expand_path('../test_helper', __FILE__)
 
-class Globalize3Test < Test::Unit::TestCase
+class Globalize3Test < Minitest::Test
   test "a translated record has many translations" do
     assert_has_many(Post, :translations)
   end

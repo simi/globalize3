@@ -1,6 +1,6 @@
 require File.expand_path('../../test_helper', __FILE__)
 
-class DirtyTrackingTest < Test::Unit::TestCase
+class DirtyTrackingTest < Minitest::Test
   test "dirty tracking works" do
     post = Post.create(:title => 'title', :content => 'content')
     assert_equal [], post.changed

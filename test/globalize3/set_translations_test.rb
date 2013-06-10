@@ -2,7 +2,7 @@
 
 require File.expand_path('../../test_helper', __FILE__)
 
-class AttributesTest < Test::Unit::TestCase
+class AttributesTest < Minitest::Test
   test "set_translations sets multiple translations at once" do
     post = Post.create(:title => 'title', :content => 'content', :locale => :en)
     post.update_attributes(:title => 'Titel', :content => 'Inhalt', :locale => :de)

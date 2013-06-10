@@ -1,6 +1,6 @@
 require File.expand_path('../../test_helper', __FILE__)
 
-class MigrationTest < Test::Unit::TestCase
+class MigrationTest < Minitest::Test
   include Globalize::ActiveRecord::Exceptions
 
   def setup
@@ -26,7 +26,7 @@ class MigrationTest < Test::Unit::TestCase
   end
 
   test 'create_translation_table! can not be called on non-translated models' do
-    assert_raise NoMethodError do
+    assert_raises NoMethodError do
       Blog.create_translation_table!(:name => :string)
     end
   end
@@ -38,13 +38,13 @@ class MigrationTest < Test::Unit::TestCase
   end
 
   test 'passing a non-translated field name raises BadFieldName' do
-    assert_raise BadFieldName do
+    assert_raises BadFieldName do
       Migrated.create_translation_table!(:content => :text)
     end
   end
 
   test 'passing a translated field with a wrong type raises BadFieldType' do
-    assert_raise BadFieldType do
+    assert_raises BadFieldType do
       Migrated.create_translation_table!(:name => :integer)
     end
   end
@@ -74,7 +74,7 @@ class MigrationTest < Test::Unit::TestCase
   end
 
   test 'drop_translation_table! can not be called on non-translated models' do
-    assert_raise NoMethodError do
+    assert_raises NoMethodError do
       Blog.drop_translation_table!
     end
   end

@@ -24,7 +24,7 @@ module ActiveRecord
   end
 end
 
-class CreateRowTest < Test::Unit::TestCase
+class CreateRowTest < Minitest::Test
   test "no update queries for creating row" do
     ActiveSupport::Notifications.subscribe('sql.active_record', ActiveRecord::Updater.new)
     account = Page.create!(:title => 'title v1')

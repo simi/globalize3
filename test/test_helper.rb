@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
-require 'test/unit'
+require 'minitest/autorun'
 require 'fileutils'
 require 'logger'
 
@@ -21,9 +21,9 @@ require 'erb'
 require File.expand_path('../data/schema', __FILE__)
 require File.expand_path('../data/models', __FILE__)
 
-DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.strategy = :transaction
 
-class Test::Unit::TestCase
+class Minitest::Test
   def setup
     I18n.locale = I18n.default_locale = :en
     Globalize.locale = nil
@@ -49,9 +49,11 @@ class Test::Unit::TestCase
   end
 
   def assert_included(item, array)
-    assert_block "Item #{item.inspect} is not included in the array #{array.inspect}" do
-      array.include?(item)
-    end
+    assert array.include?(item)
+  end
+
+  def assert_nothing_raised
+    yield
   end
 
   def assert_belongs_to(model, other)

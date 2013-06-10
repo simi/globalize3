@@ -1,6 +1,6 @@
 require File.expand_path('../../test_helper', __FILE__)
 
-class VersioningTest < Test::Unit::TestCase
+class VersioningTest < Minitest::Test
 
   test "create only one version for create" do
     post = Post.create!(:title => 'title v1', :content => '')

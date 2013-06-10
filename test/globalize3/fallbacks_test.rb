@@ -1,6 +1,6 @@
 require File.expand_path('../../test_helper', __FILE__)
 
-class TranslatedTest < Test::Unit::TestCase
+class TranslatedTest < Minitest::Test
   def setup
     @previous_backend = I18n.backend
     I18n.pretend_fallbacks

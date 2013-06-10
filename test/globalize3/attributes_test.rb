@@ -2,7 +2,7 @@
 
 require File.expand_path('../../test_helper', __FILE__)
 
-class AttributesTest < Test::Unit::TestCase
+class AttributesTest < Minitest::Test
   test 'defines accessors for the translated attributes' do
     post = Post.new
     assert post.respond_to?(:title)
